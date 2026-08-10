@@ -1,0 +1,270 @@
+/*
+  PrepDeck landing — one stylesheet, no framework, no external requests.
+  Tokens come from docs/PrepDeck-Brand-Guide.md so the site, the app and the
+  store screenshots read as one product. Dark-first, like the app itself.
+*/
+
+:root {
+  --bg: #0a1628;
+  --bg-2: #14304d;
+  --surface: #14202c;
+  --border: #26384a;
+  --tx: #f7f8fa;
+  --tx-2: #94a7b8;
+  --tx-3: #64798c;
+  --accent: #5b9bd5;
+  --accent-bright: #75b6f0;
+  --confident: #22c55e;
+  --review: #ef9f27;
+  --maxw: 720px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(160deg, var(--bg) 0%, var(--bg-2) 100%) no-repeat;
+  background-attachment: fixed;
+  color: var(--tx);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  line-height: 1.65;
+  font-size: 17px;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ---------- header ---------- */
+
+header.site {
+  padding: 28px 0 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--tx);
+}
+
+.brand img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(148, 167, 184, 0.25);
+}
+
+.brand span {
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+/* ---------- hero ---------- */
+
+.hero {
+  padding: 56px 0 8px;
+}
+
+.kicker {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+
+h1 {
+  font-size: clamp(2rem, 6vw, 2.85rem);
+  line-height: 1.12;
+  letter-spacing: -1px;
+  margin: 0 0 18px;
+  font-weight: 700;
+}
+
+.lede {
+  font-size: clamp(1.05rem, 2.6vw, 1.2rem);
+  color: var(--tx-2);
+  margin: 0 0 28px;
+  max-width: 34em;
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #08111d;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 13px 26px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.btn:hover { background: var(--accent-bright); }
+
+.btn.secondary {
+  background: transparent;
+  color: var(--tx);
+  border-color: var(--border);
+}
+
+.btn.secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+.note {
+  font-size: 0.92rem;
+  color: var(--tx-3);
+  margin: 6px 0 0;
+}
+
+/* ---------- shots ---------- */
+
+.shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 44px 0 8px;
+}
+
+.shots img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 620px) {
+  .shots { grid-template-columns: repeat(2, 1fr); }
+  .shots img:nth-child(3) { display: none; }
+}
+
+/* ---------- sections ---------- */
+
+section { padding: 46px 0; }
+
+h2 {
+  font-size: 1.35rem;
+  letter-spacing: -0.3px;
+  margin: 0 0 22px;
+  font-weight: 600;
+}
+
+.features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.features li {
+  background: rgba(20, 32, 44, 0.66);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.features h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.features p {
+  margin: 0;
+  color: var(--tx-2);
+  font-size: 0.97rem;
+}
+
+.pricing p { color: var(--tx-2); margin: 0 0 10px; }
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-bright); }
+
+/* ---------- footer ---------- */
+
+footer.site {
+  border-top: 1px solid var(--border);
+  margin-top: 24px;
+  padding: 26px 0 56px;
+  color: var(--tx-3);
+  font-size: 0.92rem;
+}
+
+footer.site nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 12px;
+}
+
+/* ---------- legal pages ---------- */
+
+.legal { padding: 34px 0 10px; }
+
+.legal h1 { font-size: clamp(1.6rem, 5vw, 2.1rem); margin-bottom: 6px; }
+
+.legal .updated { color: var(--tx-3); margin: 0 0 26px; }
+
+.legal h2 {
+  font-size: 1.15rem;
+  margin-top: 34px;
+  padding-top: 6px;
+}
+
+.legal h3 { font-size: 1rem; margin-top: 24px; }
+
+.legal p, .legal li { color: #dfe6ee; }
+
+.legal ul { padding-left: 1.2rem; }
+
+.legal li { margin: 0.4rem 0; }
+
+.back {
+  display: inline-block;
+  margin: 26px 0 0;
+  text-decoration: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 18px 0;
+  font-size: 0.9rem;
+}
+
+th, td {
+  border: 1px solid var(--border);
+  padding: 9px 11px;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* #34517d is the header colour Nabeel picked by hand on the hosted policy before
+   the pages shared a stylesheet. Kept, and now applied to every table on the site. */
+th { background: #34517d; }
+
+.table-wrap { overflow-x: auto; }
+
+code {
+  background: rgba(29, 44, 58, 0.8);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}

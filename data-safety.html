@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Data safety answers — PrepDeck</title>
+<link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img src="assets/icon.png" alt="PrepDeck app icon">
+      <span>PrepDeck</span>
+    </a>
+  </div>
+</header>
+
+<main class="wrap legal">
+<p class="updated">Unlisted reference page — the answers filed on Google Play's Data safety form.
+Not linked from anywhere on this site.</p>
+<h1>Play Data Safety — PrepDeck</h1>
+
+<p>(Generated 10 August 2026. Re-run /kit-generate-legal after toggling SDKs.)</p>
+
+<h2>Data collection and security</h2>
+
+<ul>
+
+<li><strong>Does your app collect or share any of the required user data types?</strong> Yes</li>
+
+<li><strong>Is all of the user data collected by your app encrypted in transit?</strong> Yes</li>
+
+<li><strong>Do you provide a way for users to request that their data is deleted?</strong> Yes — in-app via Settings → Account → Delete account, plus by emailing nabeelahmed.support@gmail.com. Purged within 30 days.</li>
+
+<li><strong>Data deletion URL:</strong> <a href="https://nabeelahmed314.github.io/prepdeck/privacy_policy.html">https://nabeelahmed314.github.io/prepdeck/privacy_policy.html</a></li>
+
+<li><strong>Account creation method:</strong> None</li>
+
+<li><strong>Outside-app login:</strong> No — PrepDeck has no sign-in at all, so there is no external account to log in with either.</li>
+
+</ul>
+
+<p>&gt; <strong>Three notes on the answers above.</strong> &gt; &gt; PrepDeck has <strong>no accounts</strong> (<code>KitConfig.AUTH_ENABLED = false</code>), so there is no &gt; Settings → Account → Delete account row in this app. The wording above is parsed &gt; verbatim by <code>scripts/DataSafetyCsv.java</code>, so it is kept as-is; what a user actually does &gt; is delete individual preps by swiping them on "My preps", or clear everything by &gt; uninstalling / using Android's Clear data. Both are described in section 4 of the privacy &gt; policy, which is what the deletion URL points at. &gt; &gt; <strong>The deletion URL above is live</strong> (GitHub Pages, verified 200 on 10 August). It must keep &gt; resolving, or a later Data safety review fails. It is served from the public repo &gt; NabeelAhmed314/prepdeck; re-run the CSV generator if it ever moves. &gt; &gt; <strong>Generation now goes through our own server</strong> (<code>supabase/functions/generate-questions</code>, &gt; hosted in ap-northeast-1 / Tokyo), not straight from the device to OpenRouter. The server &gt; does not store the job description or background text — it forwards them and returns the &gt; deck — but it does store a random per-install identifier with a generation count, and an &gt; IP address with a daily count, to enforce the free tier and cap abuse. That is why the &gt; device-ID row below now carries a fraud-prevention purpose.</p>
+
+<h2>Data types collected</h2>
+
+<p>Two per-type questions confuse people — answer them for this kit as:</p>
+
+<ul>
+
+<li><strong>Processed ephemerally?</strong> → <strong>No</strong> for everything here (the kit *stores* its data: events in PostHog, crash reports in Sentry, preps in local Room/DataStore). The job description looks like a candidate — our server forwards it without storing it — but ephemeral processing means the data never leaves, and this is shared with OpenRouter, so the honest answer is No.</li>
+
+<li><strong>Collected vs Shared are independent</strong>, despite Play's <code>ONLY_COLLECTED</code> / <code>ONLY_SHARED</code> response ids. The user-generated-content row is both, and ticks both boxes.</li>
+
+<li><strong>Required, or users choose?</strong> → <strong>Data collection is required</strong> when the user can't turn it off. <strong>Users can choose whether this data is collected</strong> only if there's a real in-app opt-out — here, Settings → Privacy → "Share usage analytics", which gates PostHog only.</li>
+
+</ul>
+
+<div class="table-wrap">
+<table>
+
+<thead><tr><th>Data type</th><th>Collected</th><th>Processed ephemerally</th><th>Required, or users choose</th><th>Shared</th><th>Purpose</th><th>Source</th></tr></thead>
+
+<tbody>
+
+<tr><td>App activity / Other user-generated content</td><td>Yes</td><td>No</td><td>Data collection is required</td><td>Yes</td><td>App functionality</td><td>Job description + background text sent to our Supabase Edge Function, which forwards it to OpenRouter and on to an underlying model provider. Not stored by our server.</td></tr>
+
+<tr><td>Financial info / Purchase history</td><td>Yes</td><td>No</td><td>Data collection is required</td><td>No</td><td>App functionality</td><td>RevenueCat</td></tr>
+
+<tr><td>Device or other IDs / Device or other IDs</td><td>Yes</td><td>No</td><td>Data collection is required</td><td>No</td><td>Analytics; App functionality; Fraud prevention, security, and compliance</td><td>PostHog device ID; RevenueCat anonymous app user ID; PrepDeck's own random per-install identifier and IP-keyed daily counter, stored server-side to enforce the free tier</td></tr>
+
+<tr><td>App activity / App interactions</td><td>Yes</td><td>No</td><td>Users can choose whether this data is collected</td><td>No</td><td>Analytics</td><td>PostHog</td></tr>
+
+<tr><td>Location / Approximate location</td><td>Yes</td><td>No</td><td>Users can choose whether this data is collected</td><td>No</td><td>Analytics</td><td>PostHog, inferred from IP address</td></tr>
+
+<tr><td>App info and performance / Crash logs</td><td>Yes</td><td>No</td><td>Data collection is required</td><td>No</td><td>App functionality</td><td>Sentry</td></tr>
+
+<tr><td>App info and performance / Diagnostics</td><td>Yes</td><td>No</td><td>Data collection is required</td><td>No</td><td>Analytics</td><td>Sentry — device model, OS version, app version</td></tr>
+
+</tbody>
+</table>
+</div>
+<a class="back" href="index.html">&larr; Back to PrepDeck</a>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <p>&copy; 2026 Nabeel Ahmed.</p>
+  </div>
+</footer>
+
+</body>
+</html>
