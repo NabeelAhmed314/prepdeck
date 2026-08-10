@@ -134,24 +134,38 @@ h1 {
 
 /* ---------- shots ---------- */
 
+/* All five store screenshots. A 5-up grid inside a 720px column would make each
+   phone too small to read, so they sit in a strip you can swipe or scroll --
+   full size on every screen, and the overflow hints there are more. */
 .shots {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
   gap: 16px;
-  margin: 44px 0 8px;
+  margin: 44px 0 10px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 10px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .shots img {
-  width: 100%;
+  flex: 0 0 auto;
+  width: 210px;
   height: auto;
   display: block;
   border-radius: 14px;
   border: 1px solid var(--border);
+  scroll-snap-align: start;
 }
 
-@media (max-width: 620px) {
-  .shots { grid-template-columns: repeat(2, 1fr); }
-  .shots img:nth-child(3) { display: none; }
+.shots::-webkit-scrollbar { height: 8px; }
+.shots::-webkit-scrollbar-track { background: rgba(38, 56, 74, 0.4); border-radius: 4px; }
+.shots::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+.shots::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+.shots-hint {
+  font-size: 0.88rem;
+  color: var(--tx-3);
+  margin: 0;
 }
 
 /* ---------- sections ---------- */
