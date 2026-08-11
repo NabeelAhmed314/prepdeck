@@ -21,7 +21,7 @@
 <main class="wrap legal">
 <h1>Privacy Policy — PrepDeck</h1>
 
-<p class="updated">Last updated: 10 August 2026</p>
+<p class="updated">Last updated: 11 August 2026</p>
 
 <p>PrepDeck ("we", "us", "the app") respects your privacy. This document explains what data the app collects, why, and your rights regarding it.</p>
 
@@ -40,7 +40,7 @@
 
 <tr><td>The job description you paste, the "your background" text you write, and the company, role title and interview round you enter</td><td>You, when you create a prep</td><td>Sent to our generation server, which forwards it to our AI provider so it can generate interview questions tailored to that specific role. This is the app's core function. <strong>Our server processes this text in transit and does not store it.</strong></td></tr>
 
-<tr><td>A randomly generated device identifier, and a count of how many question sets have been generated from your device</td><td>Created by the app on first use; held on our server</td><td>To enforce the free-tier limit on how many question sets can be generated before subscribing. The identifier is a random value created by the app. It is not your Android ID, advertising ID or any hardware identifier, and it is not linked to your name, email or account — you have none.</td></tr>
+<tr><td>A device identifier, and a count of how many question sets have been generated from your device</td><td>Derived by the app from your device; held on our server</td><td>To enforce the free-tier limit on how many question sets can be generated before subscribing. The identifier is a <strong>scrambled (hashed) form of your device's Android ID</strong> — we never receive the Android ID itself, and the value we hold cannot be turned back into it. We use it because a purely random identifier disappeared when the app was uninstalled, which let the free limit be reset indefinitely. It is <strong>not</strong> your advertising ID, we do not use it for advertising, and it is not linked to your name, email or account — you have none. Android gives each app a different Android ID, so this value cannot be used to recognise you in any other app.</td></tr>
 
 <tr><td>Your IP address, and a count of question sets generated from it today</td><td>Seen by our server when the app calls it</td><td>To cap how many generations can be requested from one network per day, which is what stops our AI costs being abused. We keep only the address and a daily counter, and delete these records within a few days.</td></tr>
 
@@ -112,15 +112,15 @@
 
 <li><strong>Delete your preps.</strong> Swipe a prep on "My preps" and delete it. The prep and all of its questions are removed from your device immediately.</li>
 
-<li><strong>Delete everything on your device.</strong> Uninstalling the app — or using Android's Settings → Apps → PrepDeck → Clear data — permanently erases every prep, question, answer and the background text you wrote, along with the device identifier the app generated. There is no account for us to delete, because there is no account.</li>
+<li><strong>Delete everything on your device.</strong> Uninstalling the app — or using Android's Settings → Apps → PrepDeck → Clear data — permanently erases every prep, question, answer and the background text you wrote. There is no account for us to delete, because there is no account. Note that the generation counter on our server is <strong>not</strong> erased by this: it is keyed to your device rather than to the app's storage, deliberately, because otherwise the free limit could be reset by reinstalling. See the limit described below.</li>
 
 <li><strong>Request access or erasure of the data held about you.</strong> Email nabeelahmed.support@gmail.com and we will act on it. Please note the limit described below.</li>
 
 </ul>
 
-<p><strong>A limit you should know about.</strong> Because PrepDeck has no accounts, we have no way to connect a request to a particular record on our server. The device identifier lives only on your device; once you clear the app's data it is gone from your side, and the counter left on ours can no longer be matched to you or to anyone else. If you want us to erase the record and can still open the app, contact us and we will explain how to supply the identifier.</p>
+<p><strong>A limit you should know about.</strong> Because PrepDeck has no accounts, we have no way to connect a request to a particular record on our server unless you can tell us your device's identifier. The app can still compute it as long as you have it installed on the same device, so if you want us to erase the record, contact us and we will explain how to supply the identifier. Once you no longer have that device, the counter left on our server can no longer be matched to you or to anyone else — it is a hash and a number, with nothing to join it to.</p>
 
-<p>Records held by our analytics and crash-reporting processors are deleted within 30 days of such a request. IP records on our server are deleted automatically within a few days. Generation counters are kept for as long as the free-tier limit needs to be enforced, because a counter that expired would reset the free allowance; they contain no information about you beyond a random value and a number. Data stored on your device is under your control and is removed the moment you delete the app or clear its data.</p>
+<p>Records held by our analytics and crash-reporting processors are deleted within 30 days of such a request. IP records on our server are deleted automatically within a few days. Generation counters are kept for as long as the free-tier limit needs to be enforced, because a counter that expired would reset the free allowance; they contain no information about you beyond a hashed value and a number. Data stored on your device is under your control and is removed the moment you delete the app or clear its data.</p>
 
 <h2>5. Security</h2>
 
@@ -132,7 +132,7 @@
 
 <li>Any credentials the app needs to store locally are encrypted at rest with AES-GCM using a key held in the Android Keystore.</li>
 
-<li>Our server does not store the job descriptions or background text it processes, so there is no archive of that content to breach. The database it does keep holds only random identifiers, counters and short-lived IP records, and is not readable by the app or by anyone using the app's public key.</li>
+<li>Our server does not store the job descriptions or background text it processes, so there is no archive of that content to breach. The database it does keep holds only hashed identifiers, counters and short-lived IP records, and is not readable by the app or by anyone using the app's public key.</li>
 
 <li>Because there is no account and no server holding your preps, there is no central database of user prep content.</li>
 
@@ -160,7 +160,7 @@
 
 <p><strong>We do not sell your personal information</strong>, and we do not share it for cross-context behavioural advertising. We have not done so in the preceding twelve months.</p>
 
-<p>In the past twelve months we have collected these categories of personal information: identifiers (an anonymous app user ID, a device identifier, a randomly generated generation identifier and your IP address), internet or other electronic network activity information (app usage events and crash reports), commercial information (subscription purchase history), geolocation data at an approximate, city-level granularity inferred from your IP address, and professional or employment-related information (the background text and job descriptions you choose to submit). We collect these for the business purposes described in section 2.</p>
+<p>In the past twelve months we have collected these categories of personal information: identifiers (an anonymous app user ID, a device identifier, a hashed generation identifier and your IP address), internet or other electronic network activity information (app usage events and crash reports), commercial information (subscription purchase history), geolocation data at an approximate, city-level granularity inferred from your IP address, and professional or employment-related information (the background text and job descriptions you choose to submit). We collect these for the business purposes described in section 2.</p>
 
 <p>You have the right to know what personal information we have collected, the right to request its deletion, the right to correct inaccurate information, and the right not to be discriminated against for exercising these rights. To exercise any of them, email nabeelahmed.support@gmail.com. Because the app has no accounts, we may be unable to associate a request with a specific device; where that is the case, deleting the app removes the on-device data yourself.</p>
 
