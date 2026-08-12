@@ -282,3 +282,39 @@ code {
   border-radius: 4px;
   font-size: 0.9em;
 }
+
+/* ---------- tester steps ---------- */
+/* Numbered rather than bulleted because the order genuinely matters: an opt-in
+   link opened before the address is on the tester list just shows an error. */
+.steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 22px;
+}
+
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 40px;
+  margin: 12px 0;
+  color: var(--tx-2);
+}
+
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
